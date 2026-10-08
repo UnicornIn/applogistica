@@ -1,0 +1,14 @@
+export const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+export const COP = new Intl.NumberFormat('es-CO',{style:'currency',currency:'COP',maximumFractionDigits:0});
+export const money = n => COP.format(Math.round(Number(n)||0));
+export const NF = new Intl.NumberFormat('es-CO',{maximumFractionDigits:2});
+export const num = n => NF.format(Number(n)||0);
+export const DAY = 864e5;
+export const fd = ms => ms ? new Date(ms).toLocaleDateString('es-CO',{day:'2-digit',month:'short',year:'numeric'}) : '—';
+export const fdt = ms => ms ? new Date(ms).toLocaleString('es-CO',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}) : '—';
+export const ymd = () => new Date().toISOString().slice(2,10).replace(/-/g,'');
+export const rid = p => `${p}-${ymd()}-${Math.random().toString(36).slice(2,6).toUpperCase()}`;
+export const safeId = s => { let x = String(s||'').trim().replace(/[^A-Za-z0-9_\-.~:@+]/g,'-').slice(0,150); if(!x || x==='.' || x==='..') x = 'id'+Date.now(); return x; };
+export const toDI = ms => { const d=new Date(ms); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; };
+export const fromDI = s => s ? new Date(s+'T12:00:00').getTime() : null;
+export const N = v => { const n = Number(String(v??'').replace(',','.')); return isFinite(n) ? n : 0; };

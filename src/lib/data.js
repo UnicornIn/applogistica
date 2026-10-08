@@ -1,0 +1,13 @@
+import { S } from './store.js';
+export const L = c => S.D[c] || [];
+export const cfg = () => L('config').find(d => d.id==='general') || {};
+export const shopCfg = () => L('config').find(d => d.id==='shopify') || {};
+export const bodegas = () => cfg().bodegas || [];
+export const bod = id => bodegas().find(b => b.id===id);
+export const bodName = id => bod(id)?.nombre || '—';
+export const prod = sku => L('productos').find(p => p.id===sku);
+export const prodName = sku => prod(sku)?.nombre || sku;
+export const ins = id => L('insumos').find(i => i.id===id);
+export const itemName = (clase,id) => clase==='in' ? (ins(id)?.nombre || id) : prodName(id);
+export const cli = id => L('clientes').find(c => c.id===id);
+export const activos = () => L('productos').filter(p => p.activo!==false).sort((a,b)=>(a.linea||'').localeCompare(b.linea||'')||(a.nombre||'').localeCompare(b.nombre||''));
