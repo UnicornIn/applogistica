@@ -1,0 +1,10 @@
+export const COLS = ['config','productos','insumos','clientes','usuarios','solicitudes','pedidos','movimientos','traslados','devoluciones','producciones'];
+export const ICON = {inicio:'🏠',pedidos:'🧾',pedido:'🧾',nuevo:'🛒',inventario:'📦',kardex:'📒',traslados:'🚚',devoluciones:'↩️',preparar:'📋',plan:'📈',produccion:'🏭',calidad:'✅',facturacion:'💵',clientes:'👥',cliente:'👤',catalogo:'🧴',shopify:'🛍️',usuarios:'🔑',config:'⚙️'};
+export const ROLES = {admin:'Super admin',distribuidor:'Distribuidor',bodega:'Bodega',planta:'Planta',calidad:'Calidad',facturacion:'Facturación'};
+export const EST = {recibido:'Recibido',asignado:'Recibido',preparacion:'En preparación',despachado:'Despachado',facturado:'Facturado',cancelado:'Cancelado'};
+export const FLOW = ['recibido','preparacion','despachado','facturado'];
+export const flowIdx = e => FLOW.indexOf(e==='asignado'?'recibido':e);
+export const ACTIVE = ['recibido','asignado','preparacion'];
+export const TIPOS_CLI = ['Distribuidor','Peluquería o salón','Centro de experiencia','Tienda'];
+export const MOV = {carga_inicial:'Carga inicial',ajuste_manual:'Ajuste manual',ajuste_conteo:'Ajuste',despacho_pedido:'Despacho de pedido',traslado_salida:'Traslado enviado',traslado_entrada:'Traslado recibido',devolucion:'Devolución recibida',produccion_entrada:'Lote liberado',consumo_insumos:'Consumo de empaque',entrada_insumos:'Entrada de empaque',venta_web:'Venta tienda web'};
+export const PRESETS = [['todo','Todo'],['hoy','Hoy'],['7','Últimos 7 días'],['mes','Este mes'],['mesant','Mes anterior']];
